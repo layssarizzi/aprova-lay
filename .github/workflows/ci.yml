@@ -20,3 +20,15 @@ jobs:
         run: npm install
       - name: Typecheck and build
         run: npm run build
+
+  edge-function:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - name: Typecheck password login function
+        run: deno check supabase/functions/password-login/index.ts
