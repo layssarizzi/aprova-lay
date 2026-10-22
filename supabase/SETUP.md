@@ -16,7 +16,7 @@ Defina os seguintes secrets no projeto:
 - `APP_ACCESS_PASSWORD`: senha de acesso compartilhada definida pela proprietária, informada somente como segredo no painel/CLI.
 - `APP_AUTH_EMAIL`: e-mail do usuário interno provisionado.
 - `RATE_LIMIT_PEPPER`: valor aleatório longo, exclusivo para hash dos IPs.
-- `APP_ALLOWED_ORIGIN`: origem exata do app publicado, por exemplo `https://seu-dominio.example` (recomendado; não deixe `*` em produção).
+- `APP_ALLOWED_ORIGIN`: origem exata do app publicado, por exemplo `https://seu-dominio.example` (obrigatório; informe a origem exata, sem barra final).
 - Os secrets padrão do Supabase `SUPABASE_URL`, `SUPABASE_ANON_KEY` e `SUPABASE_SERVICE_ROLE_KEY` devem estar disponíveis para a função.
 
 ## 5. Publicação e teste
