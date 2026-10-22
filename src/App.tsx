@@ -278,7 +278,7 @@ export default function App() {
           </form>
           <div className="login-footnote"><ShieldCheck size={16} /> Acesso privado com sessão autenticada</div>
         </section>
-        <div className="login-bottom">Um passo de cada vez.</div>
+        <div className="login-bottom">Acesso pessoal</div>
       </main>
     )
   }
@@ -322,7 +322,7 @@ export default function App() {
             <div>
               <p className="date-line"><CalendarDays size={15} /> {todayLabel()}</p>
               <h1>{greeting()}, Lay<span className="hello-dot">.</span></h1>
-              <p className="welcome-subtitle">Seu progresso, no seu ritmo.</p>
+              <p className="welcome-subtitle">Resumo da sua preparação.</p>
             </div>
             <button className="primary-button" onClick={() => setStudyModalOpen(true)}><Plus size={18} /> Registrar estudo</button>
           </section>
@@ -389,7 +389,7 @@ export default function App() {
                   </div>
                 ))}
               </div>
-              <div className="focus-footer"><span className="focus-footer-icon"><ArrowDownRight size={16} /></span><span>O importante é manter a constância.</span></div>
+              <div className="focus-footer"><span className="focus-footer-icon"><ArrowDownRight size={16} /></span><span>Histórico atualizado com os registros salvos.</span></div>
             </article>
           </section>
 
@@ -420,7 +420,7 @@ export default function App() {
               <div className="review-copy"><h3>Revisões pendentes</h3><p>Seu espaço de revisões ficará disponível quando a biblioteca de questões for ativada.</p></div>
               <span className="coming-soon">Próxima etapa <ChevronDown size={14} /></span>
             </article>
-            <article className="consistency-card"><div className="consistency-icon"><Target size={19} /></div><div><h3>Pequenos passos contam</h3><p>Registre o que você fez hoje. Seu histórico vai mostrar o caminho percorrido.</p></div></article>
+            <article className="consistency-card"><div className="consistency-icon"><Target size={19} /></div><div><h3>Histórico de estudo</h3><p>Registre sessões concluídas para acompanhar o tempo dedicado.</p></div></article>
           </section>
 
           <footer className="page-footer"><span>Aprova Lay</span><span>Preparação pessoal · {new Date().getFullYear()}</span></footer>
