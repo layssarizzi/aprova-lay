@@ -1,7 +1,7 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.57.0";
 
 const corsHeaders = {
-  "Access-Control-Allow-Origin": Deno.env.get("APP_ALLOWED_ORIGIN") ?? "*",
+  "Access-Control-Allow-Origin": Deno.env.get("APP_ALLOWED_ORIGIN") ?? "null",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
   "Content-Type": "application/json",
@@ -37,9 +37,15 @@ Deno.serve(async (request) => {
   const supabaseUrl = Deno.env.get("SUPABASE_URL");
   const anonKey = Deno.env.get("SUPABASE_ANON_KEY");
   const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+  const allowedOrigin = Deno.env.get("APP_ALLOWED_ORIGIN");
 
-  if (!accessPassword || !internalEmail || !pepper || !supabaseUrl || !anonKey || !serviceRoleKey) {
+  if (!accessPassword || !internalEmail || !pepper || !supabaseUrl || !anonKey || !serviceRoleKey || !allowedOrigin) {
     return json(503, { error: "O acesso ainda não foi configurado no servidor." });
+  }
+
+  const requestOrigin = request.headers.get("origin");
+  if (requestOrigin && requestOrigin !== allowedOrigin) {
+    return json(403, { error: "Origem não autorizada." });
   }
 
   let suppliedPassword = "";
