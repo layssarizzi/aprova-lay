@@ -1,4 +1,5 @@
-import { FormEvent, useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import type { FormEvent } from 'react'
 import {
   ArrowDownRight, ArrowRight, BookOpen, CalendarDays, Check, ChevronDown,
   CircleHelp, Clock3, GraduationCap, LayoutDashboard, LogOut, LockKeyhole,
