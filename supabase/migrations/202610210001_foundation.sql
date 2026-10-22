@@ -76,6 +76,10 @@ alter table public.questions enable row level security;
 alter table public.question_attempts enable row level security;
 alter table public.auth_login_attempts enable row level security;
 
+-- Explicit grants complement RLS; RLS remains the row-level security boundary.
+grant select on public.contests, public.exams, public.questions to authenticated;
+grant select, insert, update, delete on public.study_sessions, public.question_attempts to authenticated;
+
 -- Contest catalog is read-only to signed-in users.
 drop policy if exists "authenticated users can read contests" on public.contests;
 create policy "authenticated users can read contests"
